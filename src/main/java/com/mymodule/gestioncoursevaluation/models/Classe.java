@@ -3,7 +3,9 @@ package com.mymodule.gestioncoursevaluation.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,4 +31,12 @@ public class Classe {
 
     @OneToMany(mappedBy = "classe")
     private List<Fichier> fichiers;
+
+    @ManyToMany()
+    @JoinTable(
+            name = "enseignant_classe",
+            joinColumns = @JoinColumn(name = "classe_id"),
+            inverseJoinColumns = @JoinColumn(name = "enseignant_id")
+    )
+    private Set<Enseignant> enseignant = new HashSet<>();
 }

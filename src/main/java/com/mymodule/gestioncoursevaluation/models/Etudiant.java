@@ -12,7 +12,9 @@ public class Etudiant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, nullable = false)
+    //@Column(unique = true, nullable = false)
+    //remettre unique true after
+    @Column(nullable = false)
     private String matricule;
 
     @Column(length = 30, nullable = false)
@@ -21,7 +23,9 @@ public class Etudiant {
     @Column(length = 70, nullable = false)
     private String prenoms;
 
-    @Column(unique = true, nullable = false)
+    //@Column(unique = true, nullable = false)
+    //remettre unique true after
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false, length = 20)
@@ -31,7 +35,7 @@ public class Etudiant {
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "idClasse", nullable = false)
+    @JoinColumn(name = "idClasse")
     private Classe classe;
 
     @OneToMany(mappedBy = "etudiant")

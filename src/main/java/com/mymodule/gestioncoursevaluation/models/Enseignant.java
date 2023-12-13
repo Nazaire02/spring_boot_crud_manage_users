@@ -43,4 +43,7 @@ public class Enseignant {
 
     @ManyToMany(mappedBy = "enseignant")
     private Set<ECUE> ecues = new HashSet<>();
+
+    @ManyToMany(mappedBy = "enseignant")
+    private Set<Classe> classes = new HashSet<>();
 }

@@ -33,7 +33,7 @@ public class EnseignantController {
     @PostMapping("/enseignant/add")
     public String addEnseignant(Enseignant enseignant){
         es.save(enseignant);
-        return "redirect:/";
+        return "redirect:/enseignants";
     }
 
     @GetMapping("/edit/enseignant/{id}")
