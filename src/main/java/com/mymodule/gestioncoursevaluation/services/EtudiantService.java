@@ -23,7 +23,7 @@ public class EtudiantService {
     }
 
     public void save(Etudiant etudiant){
-        etudiant.setMatricule("ETUD0010");
+        etudiant.setMatricule("ETUD0012");
         etudiant.setPassword("PASSWORD123");
         er.save(etudiant);
     }

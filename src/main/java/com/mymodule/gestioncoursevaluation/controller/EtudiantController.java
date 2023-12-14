@@ -2,6 +2,7 @@ package com.mymodule.gestioncoursevaluation.controller;
 
 import com.mymodule.gestioncoursevaluation.models.Enseignant;
 import com.mymodule.gestioncoursevaluation.models.Etudiant;
+import com.mymodule.gestioncoursevaluation.services.ClasseService;
 import com.mymodule.gestioncoursevaluation.services.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EtudiantController {
     @Autowired private EtudiantService es;
+    @Autowired private ClasseService cs;
     @GetMapping("/etudiants")
     private String etudiantListe(Model model){
         model.addAttribute("etudiants", es.allEtudiants());
@@ -22,6 +24,7 @@ public class EtudiantController {
     @GetMapping("/etudiant/new")
     private String showNewForm(Model model){
         model.addAttribute("etudiant", new Etudiant());
+        model.addAttribute("classes", cs.classeListe());
         model.addAttribute("pageTitle","Renseigner les infos de l'étudiant dans le formulaire ci dessous");
         return "screems/etudiants/form_etudiant";
     }

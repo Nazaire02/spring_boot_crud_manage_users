@@ -15,4 +15,8 @@ public class ClasseService {
     public List<Classe> classeListe(){
         return (List<Classe>) cr.findAll();
     }
+
+    public List<Classe> classeListByIds(Iterable<Integer> ids){
+        return (List<Classe>) cr.findAllById(ids);
+    }
 }
