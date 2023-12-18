@@ -14,10 +14,8 @@ public class ECUE {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String libelle;
 
-    @Column(nullable = false)
     private String code;
 
     @OneToMany(mappedBy = "ecue")
@@ -26,11 +24,11 @@ public class ECUE {
     @OneToMany(mappedBy = "ecue")
     private List<Fichier> fichiers;
 
-    @ManyToMany()
-    @JoinTable(
-            name = "enseignant_ecue",
-            joinColumns = @JoinColumn(name = "ecue_id"),
-            inverseJoinColumns = @JoinColumn(name = "enseignant_id")
-    )
-    private Set<Enseignant> enseignant = new HashSet<>();
+    //@ManyToMany()
+    //@JoinTable(
+    //        name = "enseignant_ecue",
+    //        joinColumns = @JoinColumn(name = "ecue_id"),
+    //        inverseJoinColumns = @JoinColumn(name = "enseignant_id")
+    //)
+    //private Set<Enseignant> enseignant = new HashSet<>();
 }

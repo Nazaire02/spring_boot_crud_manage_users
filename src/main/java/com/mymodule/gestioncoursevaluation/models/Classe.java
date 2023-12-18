@@ -32,11 +32,11 @@ public class Classe {
     @OneToMany(mappedBy = "classe")
     private List<Fichier> fichiers;
 
-    @ManyToMany()
-    @JoinTable(
-            name = "enseignant_classe",
-            joinColumns = @JoinColumn(name = "classe_id"),
-            inverseJoinColumns = @JoinColumn(name = "enseignant_id")
-    )
-    private Set<Enseignant> enseignant = new HashSet<>();
+    //@ManyToMany()
+    //@JoinTable(
+     //       name = "enseignant_classe",
+    //        joinColumns = @JoinColumn(name = "classe_id"),
+    //        inverseJoinColumns = @JoinColumn(name = "enseignant_id")
+    //)
+    //private Set<Enseignant> enseignant = new HashSet<>();
 }

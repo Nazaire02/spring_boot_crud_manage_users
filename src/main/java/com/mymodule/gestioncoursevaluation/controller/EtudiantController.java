@@ -1,5 +1,6 @@
 package com.mymodule.gestioncoursevaluation.controller;
 
+import com.mymodule.gestioncoursevaluation.models.Cours;
 import com.mymodule.gestioncoursevaluation.models.Enseignant;
 import com.mymodule.gestioncoursevaluation.models.Etudiant;
 import com.mymodule.gestioncoursevaluation.services.ClasseService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -37,9 +39,10 @@ public class EtudiantController {
 
     @GetMapping("/edit/etudiant/{id}")
     private String editEtudiant(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("classes", cs.classeListe());
         model.addAttribute("etudiant", es.getEtudiant(id));
         model.addAttribute("pageTitle","Modifier les infos de l'étudiant dans le formulaire ci dessous");
-        return "screems/etudiants/form_etudiant";
+        return "screems/etudiants/form_etudiant_edit";
     }
 
     @GetMapping("/delete/etudiant/{id}")

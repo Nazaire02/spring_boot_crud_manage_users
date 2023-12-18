@@ -25,7 +25,7 @@ public class Etudiant {
 
     //@Column(unique = true, nullable = false)
     //remettre unique true after
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false, length = 20)

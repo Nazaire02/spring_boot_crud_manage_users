@@ -17,10 +17,10 @@ public class Cours {
     private Date date_cours;
 
     @Column(nullable = false)
-    private Time heure_debut;
+    private String heure_debut;
 
     @Column(nullable = false)
-    private Time heure_fin;
+    private String heure_fin;
 
     @Column(nullable = false)
     private String lien_meet;

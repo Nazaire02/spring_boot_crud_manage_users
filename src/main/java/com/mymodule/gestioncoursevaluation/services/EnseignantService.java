@@ -11,7 +11,8 @@ import java.util.Optional;
 
 @Service
 public class EnseignantService {
-    @Autowired private EnseignantRepository er;
+    @Autowired
+    private EnseignantRepository er;
 
     public Enseignant getEnseignant(Integer id){
         Optional<Enseignant> enseignant = er.findById(id);
@@ -24,6 +25,10 @@ public class EnseignantService {
         enseignant.setPassword("Enseignant2023");
         enseignant.setMatricule("AZERTY");
         er.save(enseignant);
+    }
+
+    public Enseignant findByEmail(String email){
+        return er.findByEmail(email);
     }
 
     public void delete(Integer id){

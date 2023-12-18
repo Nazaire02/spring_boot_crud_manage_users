@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liste des cours</title>
+  <link rel="stylesheet" href="/css/styles.min.css" />
+</head>
+
+<body>
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- Sidebar Start -->
+  <div th:replace="base/sidebar"></div>
+  <!--  Sidebar End -->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+    <div th:replace="base/header"></div>
+    <!--  Header End -->
+
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-semibold mb-4">Liste des cours</h5>
+              <div class="table-responsive">
+                <table class="table text-nowrap mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Id</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Date cours</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Heure debut</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Heure fin</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Lien meet</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Actions</h6>
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <th:block th:each="element: ${cours}">
+                    <tr>
+                      <td class="border-bottom-0"><h6 class="fw-semibold mb-0">[[${element.id}]]</h6></td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">[[${element.date_cours}]]</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">[[${element.heure_debut}]]</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">[[${element.heure_fin}]]</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">[[${element.lien_meet}]]</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <div class="d-flex align-items-center gap-2">
+                          <a th:href="@{'/edit/cours/' + ${element.id}}"><span class="badge bg-primary rounded-3 fw-semibold">Edit</span></a>
+                          <a th:href="@{'/delete/cours/' + ${element.id}}"><span class="badge bg-danger rounded-3 fw-semibold">Supprimer</span></a>
+                        </div>
+                      </td>
+                    </tr>
+                  </th:block>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <a th:href="@{/cours/new}" class=""><button type="submit" class="btn btn-primary">Créer cours</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

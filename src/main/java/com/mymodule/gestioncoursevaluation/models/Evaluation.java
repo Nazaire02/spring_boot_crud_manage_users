@@ -21,10 +21,10 @@ public class Evaluation {
     private Date date_evaluation;
 
     @Column(nullable = false)
-    private Time heure_debut;
+    private String heure_debut;
 
     @Column(nullable = false)
-    private Time heure_fin;
+    private String heure_fin;
 
     private String statut;
 

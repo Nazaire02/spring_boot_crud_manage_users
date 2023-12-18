@@ -25,14 +25,14 @@
           <span class="hide-menu">Home</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" th:href="@{/}" aria-expanded="false">
+          <a class="sidebar-link" th:href="@{/index}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
             <span class="hide-menu">Accueil</span>
           </a>
         </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item" th:if="${isAdmin}">
           <a class="sidebar-link" th:href="@{/etudiants}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
@@ -40,12 +40,32 @@
             <span class="hide-menu">Etudiants</span>
           </a>
         </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item" th:if="${isAdmin}">
           <a class="sidebar-link" th:href="@{/enseignants}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
             <span class="hide-menu">Enseignants</span>
+          </a>
+        </li>
+        <!--Si c'est un enseignant on affiche tous les cours qu'il a créé et en bas on ajoute le boutton créer nouveau cours
+        Au cas ou c'est un etudiant on affiche que les cours de sa classe -->
+        <li class="sidebar-item">
+          <a class="sidebar-link" th:href="@{/cours}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+            <span class="hide-menu">Cours</span>
+          </a>
+        </li>
+        <!--Si c'est un enseignant on affiche toutes les evaluations qu'il a créé et en bas on ajoute le boutton créer nouvelle evaluation
+        //Au cas ou c'est un etudiant on affiche que les cours de sa classe-->
+        <li class="sidebar-item">
+          <a class="sidebar-link" th:href="@{/evaluations}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+            <span class="hide-menu">Evaluations</span>
           </a>
         </li>
 

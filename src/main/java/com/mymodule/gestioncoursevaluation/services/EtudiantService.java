@@ -28,6 +28,10 @@ public class EtudiantService {
         er.save(etudiant);
     }
 
+    public Etudiant findByEmail(String email){
+        return er.findByEmail(email);
+    }
+
     public void delete(Integer id){
         er.deleteById(id);
     }

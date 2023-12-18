@@ -38,13 +38,9 @@ public class EnseignantController {
 
     @PostMapping("/enseignant/add")
     public String addEnseignant(Enseignant enseignant, @RequestParam("classeIds") List<Integer> classeIds){
-        List<Classe> classesSelectionnees = cs.classeListByIds(classeIds);
-        enseignant.getClasses().addAll(classesSelectionnees);
-        for (Classe classe:
-                classesSelectionnees) {
-            System.out.println(classe);
-        }
-        enseignant.setClasses(new HashSet<>(classesSelectionnees));
+        //List<Classe> classesSelectionnees = cs.classeListByIds(classeIds);
+        //enseignant.getClasses().addAll(classesSelectionnees);
+        //enseignant.setClasses(new HashSet<>(classesSelectionnees));
         es.save(enseignant);
         return "redirect:/enseignants";
     }

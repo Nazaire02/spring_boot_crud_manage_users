@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ajouter un etudiant</title>
+  <title>Ajouter un cours</title>
   <link rel="stylesheet" href="/css/styles.min.css" />
 </head>
 
@@ -29,29 +29,30 @@
             <h5 class="card-title fw-semibold mb-4">[[${pageTitle}]]</h5>
             <div class="card">
               <div class="card-body">
-                <form th:action="@{/etudiant/add}" method="post" th:object="${etudiant}">
+                <form th:action="@{/cours/add}" method="post" th:object="${cours}">
                   <div class="mb-3">
-                    <label class="form-label">Nom</label>
-                    <input type="text" class="form-control" th:field="*{nom}">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control" th:field="*{date_cours}">
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Prénoms</label>
-                    <input type="text" class="form-control" th:field="*{prenoms}">
+                    <label class="form-label">Heure de début</label>
+                    <input type="time" class="form-control" th:field="*{heure_debut}">
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" th:field="*{email}">
+                    <label class="form-label">Heure de fin</label>
+                    <input type="time" class="form-control" th:field="*{heure_fin}">
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Téléphone</label>
-                    <input type="text" class="form-control" th:field="*{telephone}">
+                    <label class="form-label">Lien meet</label>
+                    <input type="text" class="form-control" th:field="*{lien_meet}">
                   </div>
-                  <div class="mb-3">
+                  <!-- Ici normalement ce sont les classes dans lesquelles le prof enseigne-->
+                  <!-- <div class="mb-3">
                     <label class="form-label" for="classe">Classe</label>
-                    <select id="classe" name="classe" th:field="*{classe}" class="form-select">
+                    <select id="classe" name="children" th:field="*{classe}" class="form-select">
                       <option th:each="classe : ${classes}" th:value="${classe.id}" th:text="${classe.libelle}"></option>
                     </select>
-                  </div>
+                  </div>-->
                   <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
               </div>

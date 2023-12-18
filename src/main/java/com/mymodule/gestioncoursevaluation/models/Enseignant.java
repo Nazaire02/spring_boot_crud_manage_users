@@ -23,7 +23,7 @@ public class Enseignant {
     @Column(nullable = false)
     private String prenoms;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String telephone;
@@ -41,9 +41,9 @@ public class Enseignant {
     @OneToMany(mappedBy = "enseignant")
     private List<Cours> cours;
 
-    @ManyToMany(mappedBy = "enseignant")
-    private Set<ECUE> ecues = new HashSet<>();
+    //@ManyToMany(mappedBy = "enseignant")
+    //private Set<ECUE> ecues = new HashSet<>();
 
-    @ManyToMany(mappedBy = "enseignant")
-    private Set<Classe> classes = new HashSet<>();
+    //@ManyToMany(mappedBy = "enseignant")
+    //private Set<Classe> classes = new HashSet<>();
 }
